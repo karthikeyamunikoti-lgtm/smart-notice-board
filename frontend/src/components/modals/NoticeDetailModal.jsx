@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Tag, AlertCircle, Download, User, Info, Trash2 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
+import { BASE_URL } from '../../utils/api';
+
 const NoticeDetailModal = ({ isOpen, onClose, notice, onDelete }) => {
   const { userInfo } = useAuth();
   if (!notice) return null;
@@ -89,7 +91,7 @@ const NoticeDetailModal = ({ isOpen, onClose, notice, onDelete }) => {
                 <div className="flex gap-3 w-full sm:w-auto">
                    {notice.attachmentUrl && (
                       <a 
-                        href={`http://localhost:5000${notice.attachmentUrl}`}
+                        href={`${BASE_URL}${notice.attachmentUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 sm:flex-none px-6 py-3.5 bg-slate-900 text-white text-xs font-black rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2"

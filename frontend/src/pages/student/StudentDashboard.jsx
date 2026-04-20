@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import API from '../../utils/api';
+import API, { BASE_URL, SOCKET_URL } from '../../utils/api';
 import { io } from 'socket.io-client';
 import { Search, Filter, Calendar, Tag, Download, Eye, AlertCircle, Trash2, Trash, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ const StudentDashboard = () => {
     fetchNotices();
     
     // Refresh notices in real-time when a new one is approved
-    const socket = io('http://localhost:5000');
+    const socket = io(SOCKET_URL);
     socket.on('newNotice', () => {
       fetchNotices();
     });
@@ -233,7 +233,7 @@ const StudentDashboard = () => {
                     </button>
                     {notice.attachmentUrl && (
                       <a 
-                        href={`http://localhost:5000${notice.attachmentUrl}`} 
+                        href={`${BASE_URL}${notice.attachmentUrl}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="p-3 bg-white border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 hover:text-primary-600 transition-all"

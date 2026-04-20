@@ -141,7 +141,7 @@ const PendingApprovals = () => {
                        </button>
                        {notice.attachmentUrl && (
                           <a 
-                             href={`http://localhost:5000${notice.attachmentUrl}`} 
+                             href={`${BASE_URL}${notice.attachmentUrl}`} 
                              target="_blank" 
                              rel="noopener noreferrer"
                              className="p-3 bg-white border border-slate-200 text-slate-900 rounded-xl hover:bg-slate-50 transition-all"
