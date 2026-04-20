@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from '../../utils/api';
+import API, { BASE_URL } from '../../utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   CheckCircle, 
