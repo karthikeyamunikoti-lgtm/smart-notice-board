@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+// Set base URL dynamically based on environment
+const baseURL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api/' 
+  : 'https://smart-notice-board-0k2k.onrender.com/api/';
+
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api/',
+  baseURL,
 });
 
 // Add a request interceptor to handle auth and URL normalization
